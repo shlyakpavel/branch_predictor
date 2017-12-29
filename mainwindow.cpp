@@ -23,7 +23,7 @@ void MainWindow::on_StepButton_clicked()
     if ( ui->listWidget->selectedItems().isEmpty() ) return;
     QListWidgetItem* cur= ui->listWidget->selectedItems().first();
     element el(cur->text());
-    if (el.type==jumpto){
+    if (el.type==jumpto and willjump){
         if (ui->listWidget->count() > el.pointsto){
             ui->listWidget->item(el.pointsto)->setSelected(true);};
     }
@@ -45,6 +45,8 @@ void MainWindow::on_StepButton_clicked()
             //DoCleverStep();
             break;
         }
+        willjump=static_cast<bool>(qrand() % 2);
+        ui->label_4->setText(QString("Next opr will jump(random): %1").arg(willjump));
     }
 }
 

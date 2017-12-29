@@ -35,6 +35,6 @@ element getElementBynooom(int i){
     element el;
     el.curaddr=i;
     el.type=static_cast<element_type>(qrand() % 2);
-    el.pointsto=i+5;
+    el.pointsto=qrand() % 10;
     return el;
 }
