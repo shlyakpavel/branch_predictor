@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>509</width>
-    <height>358</height>
+    <width>731</width>
+    <height>471</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -23,7 +23,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QListView" name="listView"/>
+     <widget class="QListWidget" name="listWidget"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Prediction: 1</string>
+      </property>
+     </widget>
     </item>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -41,16 +48,19 @@
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="mode_backwards">
+          <widget class="QRadioButton" name="mode_jump">
            <property name="text">
-            <string>Single-&amp;direction: always backwards</string>
+            <string>Single-&amp;direction: always jump</string>
            </property>
           </widget>
          </item>
          <item>
           <widget class="QRadioButton" name="mode_clever">
            <property name="text">
-            <string>&amp;Always jump to lower adress</string>
+            <string>&amp;Clever: always jump to lower adress</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
            </property>
           </widget>
          </item>
