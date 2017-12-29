@@ -42,7 +42,11 @@ void MainWindow::on_StepButton_clicked()
             ui->label_3->setText(QString("Prediction: %1").arg(el.curaddr+1));
             break;
         default:
-            //DoCleverStep();
+            if (el.pointsto < el.curaddr){
+                ui->label_3->setText(QString("Prediction: %1").arg(el.pointsto));
+            } else{
+                ui->label_3->setText(QString("Prediction: %1").arg(el.curaddr+1));
+            }
             break;
         }
         willjump=static_cast<bool>(qrand() % 2);
