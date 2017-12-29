@@ -11,14 +11,16 @@ element_type getType(QString element){
 QString element::toString(){
     QString typestr;
     if (type==jumpto) typestr="Jump to"; else typestr="Do some stuff";
-    return QString::number(curaddr).append("    ").append(typestr).append("    ").append(QString::number(pointsto));
+    QString exp=QString::number(curaddr).append("    ").append(typestr);
+    if (type == jumpto) exp=exp.append("    ").append(QString::number(pointsto));
+    return exp;
 }
 
 element::element(QString data){
     QStringList args = data.split("    ");
     curaddr=args.at(0).toInt();
     if (args.at(1)=="Jump to") type=jumpto; else type=dostuff;
-    pointsto=args.at(2).toInt();
+    if (type==jumpto) pointsto=args.at(2).toInt();
 }
 
 element::element(){

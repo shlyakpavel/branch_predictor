@@ -31,22 +31,22 @@ void MainWindow::on_StepButton_clicked()
         if (ui->listWidget->count()>el.curaddr+1)
             ui->listWidget->item(el.curaddr+1)->setSelected(true);
     if (el.type==dostuff){
-        ui->label_3->setText(QString("Prediction: %1").arg(el.curaddr+1));
+        ui->label_3->setText(QString("Prediction was: %1").arg(el.curaddr+1));
     }
     else{
         switch( getMode() ) {
         case jump:
-            follow(el);
+            ui->label_3->setText(QString("Prediction: %1").arg(el.pointsto));
             break;
         case forward:
-
+            ui->label_3->setText(QString("Prediction: %1").arg(el.curaddr+1));
             break;
         default:
             //DoCleverStep();
             break;
         }
         willjump=static_cast<bool>(qrand() % 2);
-        ui->label_4->setText(QString("Next opr will jump(random): %1").arg(willjump));
+        ui->label_4->setText(QString("Next jump operation will actually jump(random): %1").arg(willjump));
     }
 }
 
@@ -54,8 +54,4 @@ mode MainWindow::getMode() {
     if ( ui->mode_jump->isChecked() ) { return jump; } else
     if ( ui->mode_forward->isChecked() ) { return forward; } else
     return clever; // default mode
-}
-
-void MainWindow::follow(element el){
-ui->label_3->setText(QString("Prediction: %1").arg(el.pointsto));
 }

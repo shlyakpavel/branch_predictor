@@ -23,7 +23,6 @@ private slots:
 private:
     Ui::MainWindow *ui;
     mode getMode();
-    void follow(element el);
     bool willjump = false;
 };
 
