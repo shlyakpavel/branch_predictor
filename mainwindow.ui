@@ -24,15 +24,6 @@
     </item>
     <item>
      <widget class="QListWidget" name="listWidget">
-      <property name="autoScrollMargin">
-       <number>10</number>
-      </property>
-      <property name="showDropIndicator" stdset="0">
-       <bool>false</bool>
-      </property>
-      <property name="movement">
-       <enum>QListView::Static</enum>
-      </property>
      </widget>
     </item>
     <item>
@@ -98,7 +89,7 @@
       <item>
        <widget class="QPushButton" name="StepButton">
         <property name="text">
-         <string>Step</string>
+         <string>&amp;Step</string>
         </property>
        </widget>
       </item>
@@ -107,7 +98,6 @@
    </layout>
   </widget>
  </widget>
- <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>

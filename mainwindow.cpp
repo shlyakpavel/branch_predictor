@@ -9,7 +9,6 @@ MainWindow::MainWindow(QWidget *parent) :
     for (int i = 0; i <= 10; i++)
        {
         ui->listWidget->addItem(getElementBynooom(i).toString());
-          //items[i] = new QListWidgetItem(getElementBynooom(i).toString(), ui->listWidget);
        }
 }
 
