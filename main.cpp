@@ -2,7 +2,6 @@
 #include <QApplication>
 #include <QTranslator>
 #include <QLibraryInfo>
-#include <QDebug>
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
@@ -12,7 +11,6 @@ int main(int argc, char *argv[])
     a.installTranslator(&qtTranslator);
 
     QTranslator myappTranslator;
-    qDebug() << QLocale::system().name();
     QString lang = QString(":/languages/") + QLocale::system().name() + ".qm";
     myappTranslator.load(lang);
     a.installTranslator(&myappTranslator);

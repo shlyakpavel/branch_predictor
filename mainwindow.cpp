@@ -7,9 +7,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     for (int i = 0; i <= 10; i++)
-       {
         ui->listWidget->addItem(getElementBynooom(i).toString());
-       }
 }
 
 MainWindow::~MainWindow()
@@ -50,7 +48,7 @@ void MainWindow::on_StepButton_clicked()
             break;
         }
         willjump=static_cast<bool>(qrand() % 2);
-        ui->label_4->setText(QString("Next jump operation will actually jump(random): %1").arg(willjump));
+        ui->label_4->setText(QString(tr("Next jump operation will actually jump(random): %1")).arg(willjump));
     }
 }
 
@@ -79,5 +77,5 @@ void MainWindow::on_mode_clever_toggled(bool checked)
 }
 
 void MainWindow::setPrediction(int prediction){
-     ui->label_prediction->setText(QString("Prediction was: %1").arg(prediction));
+     ui->label_prediction->setText(QString(tr("Prediction was: %1")).arg(prediction));
 }

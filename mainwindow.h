@@ -2,8 +2,6 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QListWidgetItem>
-//#include <QQueue>
 #include <branch_types.h>
 namespace Ui {
 class MainWindow;
