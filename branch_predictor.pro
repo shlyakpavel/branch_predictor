@@ -34,3 +34,8 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+RESOURCES += \
+    translation.qrc
+
+TRANSLATIONS += languages/ru_RU.ts

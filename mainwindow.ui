@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Branch Predictor</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -23,15 +23,31 @@
      </widget>
     </item>
     <item>
-     <widget class="QListWidget" name="listWidget">
-     </widget>
+     <widget class="QListWidget" name="listWidget"/>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout">
       <item>
+       <widget class="QLabel" name="label_prediction">
+        <property name="text">
+         <string>Prediction here</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Current addr:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Prediction: 1</string>
+         <string/>
         </property>
        </widget>
       </item>
@@ -53,6 +69,16 @@
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
          <item>
+          <widget class="QRadioButton" name="mode_clever">
+           <property name="text">
+            <string>&amp;Clever: always jump to lower adress</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QRadioButton" name="mode_forward">
            <property name="text">
             <string>&amp;Single-direction: always forward</string>
@@ -67,17 +93,7 @@
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="mode_clever">
-           <property name="text">
-            <string>&amp;Clever: always jump to lower adress</string>
-           </property>
-           <property name="checked">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QLabel" name="label">
+          <widget class="QLabel" name="Description">
            <property name="text">
             <string>A target address that is lower than its own address</string>
            </property>
@@ -99,5 +115,22 @@
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>listWidget</sender>
+   <signal>currentRowChanged(int)</signal>
+   <receiver>label_3</receiver>
+   <slot>setNum(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>389</x>
+     <y>169</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>419</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

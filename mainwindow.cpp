@@ -24,27 +24,28 @@ void MainWindow::on_StepButton_clicked()
     element el(cur->text());
     if (el.type==jumpto and willjump){
         if (ui->listWidget->count() > el.pointsto){
-            ui->listWidget->item(el.pointsto)->setSelected(true);};
+            ui->listWidget->setCurrentRow(el.pointsto);
+        };
     }
     else
         if (ui->listWidget->count()>el.curaddr+1)
-            ui->listWidget->item(el.curaddr+1)->setSelected(true);
+            ui->listWidget->setCurrentRow(ui->listWidget->currentRow()+1);
     if (el.type==dostuff){
-        ui->label_3->setText(QString("Prediction was: %1").arg(el.curaddr+1));
+        setPrediction(el.curaddr+1);
     }
     else{
-        switch( getMode() ) {
+        switch( curmode ) {
         case jump:
-            ui->label_3->setText(QString("Prediction: %1").arg(el.pointsto));
+            setPrediction(el.pointsto);
             break;
         case forward:
-            ui->label_3->setText(QString("Prediction: %1").arg(el.curaddr+1));
+            setPrediction(el.curaddr+1);
             break;
         default:
             if (el.pointsto < el.curaddr){
-                ui->label_3->setText(QString("Prediction: %1").arg(el.pointsto));
+                setPrediction(el.pointsto);
             } else{
-                ui->label_3->setText(QString("Prediction: %1").arg(el.curaddr+1));
+                setPrediction(el.curaddr+1);
             }
             break;
         }
@@ -53,8 +54,30 @@ void MainWindow::on_StepButton_clicked()
     }
 }
 
-mode MainWindow::getMode() {
-    if ( ui->mode_jump->isChecked() ) { return jump; } else
-    if ( ui->mode_forward->isChecked() ) { return forward; } else
-    return clever; // default mode
+void MainWindow::on_mode_forward_toggled(bool checked)
+{
+    if (checked) {
+        curmode=forward;
+        ui->Description->setText(tr("Hello 123"));
+    }
+}
+
+void MainWindow::on_mode_jump_toggled(bool checked)
+{
+    if (checked) {
+        curmode=jump;
+        ui->Description->setText(tr("Hello 345"));
+    }
+}
+
+void MainWindow::on_mode_clever_toggled(bool checked)
+{
+    if (checked) {
+        curmode=clever;
+        ui->Description->setText(tr("Hello 999"));
+    }
+}
+
+void MainWindow::setPrediction(int prediction){
+     ui->label_prediction->setText(QString("Prediction was: %1").arg(prediction));
 }

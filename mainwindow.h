@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
-#include <QQueue>
+//#include <QQueue>
 #include <branch_types.h>
 namespace Ui {
 class MainWindow;
@@ -20,10 +20,17 @@ public:
 private slots:
     void on_StepButton_clicked();
 
+    void on_mode_forward_toggled(bool checked);
+
+    void on_mode_jump_toggled(bool checked);
+
+    void on_mode_clever_toggled(bool checked);
+
 private:
     Ui::MainWindow *ui;
-    mode getMode();
+    mode curmode;
     bool willjump = false;
+    void setPrediction(int prediction);
 };
 
 #endif // MAINWINDOW_H
