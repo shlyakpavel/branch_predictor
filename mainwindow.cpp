@@ -48,7 +48,7 @@ void MainWindow::on_StepButton_clicked()
             break;
         }
         willjump=static_cast<bool>(qrand() % 2);
-        ui->label_4->setText(QString(tr("Next jump operation will actually jump(random): %1")).arg(willjump));
+        ui->label_4->setText(QString(tr("Next jump operation will actually jump(random): ")).append(willjump ? tr("yes") : tr("no")));
     }
 }
 
@@ -56,7 +56,7 @@ void MainWindow::on_mode_forward_toggled(bool checked)
 {
     if (checked) {
         curmode=forward;
-        ui->Description->setText(tr("Hello 123"));
+        ui->Description->setText(tr("Always predict that a conditional jump will not be taken"));
     }
 }
 
@@ -64,7 +64,7 @@ void MainWindow::on_mode_jump_toggled(bool checked)
 {
     if (checked) {
         curmode=jump;
-        ui->Description->setText(tr("Hello 345"));
+        ui->Description->setText(tr("Always predict that a conditional jump will be taken"));
     }
 }
 
@@ -72,7 +72,7 @@ void MainWindow::on_mode_clever_toggled(bool checked)
 {
     if (checked) {
         curmode=clever;
-        ui->Description->setText(tr("Hello 999"));
+        ui->Description->setText(tr("A more advanced form of static prediction presumes that backward branches will be taken and that forward branches will not. A backward branch is one that has a target address that is lower than its own address. This technique can help with prediction accuracy of loops, which are usually backward-pointing branches, and are taken more often than not taken"));
     }
 }
 

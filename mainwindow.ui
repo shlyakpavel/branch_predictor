@@ -95,7 +95,7 @@
          <item>
           <widget class="QLabel" name="Description">
            <property name="text">
-            <string>A target address that is lower than its own address</string>
+            <string/>
            </property>
           </widget>
          </item>
